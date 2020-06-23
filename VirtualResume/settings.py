@@ -74,6 +74,7 @@ WSGI_APPLICATION = 'VirtualResume.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# MYSQL_DB_SETUP
 
 DATABASES = {
     'default': {
