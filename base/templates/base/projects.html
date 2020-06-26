@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projects Showcasing</title>
+	<!-- CSS link from Bootstrap cdn-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<br>
+<div class="container">
+<div class = "row">
+	<div class = "col-md">
+		
+         <nav class="navbar navbar-light bg-light">
+			  <a class="navbar-brand" href=" /">
+			    <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Yin_yang.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+			    Main Resume
+			  </a>
+		</nav>
+
+		<hr>
+		<div class = "card card-body">
+			<a href="projects/" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Projects</a>
+			
+		</div>
+		<div class="card card-body">
+			<table class="table">
+				<tr class="table-primary">
+					<th>Project Name</th>
+					<th>Git Repo</th>
+		<!--        <th>Create Date</th> -->
+				</tr>
+				{% for i in projects %}
+					<tr class="table-info">
+						<td>{{i.name}}</td>
+						<td><button type="button" class="btn btn-link">{{i.gitrepo}}</button>
+						</td>
+				<!--   <td>{{i.date_created}}</td> -->
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

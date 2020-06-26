@@ -1,0 +1,12 @@
+To config mysql inside Viruual environment
+
+1. pip install pymysql
+
+2. And in settings.py file configure mysql settings with new DB
+3. And in __init__.py  file, need to add 
+		import pymysql
+		pymysql.version_info = (1, 3, 13, "final", 0)
+		pymysql.install_as_MySQLdb()
+		
+3. python manage.py migrate
+4. python manage.py runserver
