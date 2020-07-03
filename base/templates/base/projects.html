@@ -29,14 +29,27 @@
 				<tr class="table-primary">
 					<th>Project Name</th>
 					<th>Git Repo</th>
-		<!--        <th>Create Date</th> -->
+		        <th>Create Date</th> 
+		        <th>Project Picture</th>
 				</tr>
 				{% for i in projects %}
 					<tr class="table-info">
 						<td>{{i.name}}</td>
-						<td><button type="button" class="btn btn-link">{{i.gitrepo}}</button>
+						<td>
+						<button type="button" class="btn btn-link">
+				            <a href="{{i.gitrepo}}" role="link" aria-disabled="true"> {{i.gitrepo}} </a>
+				        </button>  
+						<!--	
+						<a href="{{i.gitrepo}}" role="link" aria-disabled="true">link</a> 
+					    <button type="button" class="btn btn-link">{{i.gitrepo}}
+				         </button>  -->
 						</td>
-				<!--   <td>{{i.date_created}}</td> -->
+				   <td>{{i.date_created}}</td> 
+				   <td>
+				   	<div class="card" style="width: 18rem;">
+				   	<img class="card-img-top" src="{{ i.picture.url }}">
+				   </div>
+				   </td>
 					</tr>
 				{% endfor %}
 			</table>

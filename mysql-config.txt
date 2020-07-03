@@ -10,3 +10,7 @@ To config mysql inside Viruual environment
 		
 3. python manage.py migrate
 4. python manage.py runserver
+
+5. if (error: cryptography is required for sha256_password or caching_sha2_password)  shows
+   then 
+    >>pip install cryptography
