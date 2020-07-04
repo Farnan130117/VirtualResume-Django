@@ -129,11 +129,11 @@ USE_TZ = True
 
 STATIC_URL = '/staticfiles/'
 MEDIA_URL = '/images/'
-STATIC_ROOT= [
+STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'staticfiles')
 ]
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'images/') 
+MEDIA_ROOT=os.path.join(BASE_DIR, '/images/') 
 #added images folder in base directory
 #related link:
 #http://www.learningaboutelectronics.com/Articles/How-to-insert-images-into-a-database-table-with-Python-in-Django.php

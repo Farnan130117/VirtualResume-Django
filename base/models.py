@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime 
 
 # Create your models here.
 
@@ -11,7 +12,8 @@ class project(models.Model):     #project_class
 	  #pip install pillow
 	  #Pillow is a Python Imaging Library which deals with different image files. 
 	  #We won’t be using pillow directly but Django is using it. Therefore, we need pillow library.
-	date_created = models.DateTimeField(auto_now_add=True, null=True)
-
+	date_created = models.DateTimeField(default=datetime.now(), null=True,  editable=False)
+	#date_created = models.DateTimeField(auto_now_add=True, null=True)
+     
 	def __str__(self):
 		return self.name

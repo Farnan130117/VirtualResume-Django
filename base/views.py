@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
+from .form import projectCreate
+
 
 # Create your views here.
 def home(request):
@@ -8,3 +10,15 @@ def home(request):
 def projects(request):
 	projects = project.objects.all()
 	return render(request, 'base/projects.html', {'projects':projects})
+
+def upload(request):
+    upload = projectCreate()
+    if request.method == 'POST':
+        upload = projectCreate(request.POST, request.FILES)
+        if upload.is_valid():
+            upload.save()
+            return redirect('/')
+        else:
+            return HttpResponse("""your form is wrong, reload on <a href = "{{ url : 'index'}}">reload</a>""")
+    else:
+        return render(request, 'base/upload_project_form.html', {'upload_form':upload})

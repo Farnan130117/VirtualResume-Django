@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Project Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+        <div class="container">
+        <div class = "row">
+        <div class = "col-md">
+                        <center>
+                            <h2 class="display-3" style="background-color:#43BFC7;color:#FFFF99;">Upload project</h2>
+
+                            <div class="card card-body h-100">
+
+                            <form method = 'POST' enctype="multipart/form-data">
+
+                                {% csrf_token %}
+                                <table class = 'w-50 table table-light' style="border-radius:20px;background-color:#E3E4FA;">
+                                    {% for field in upload_form %}
+                                    <tr>
+                                        <th>{{field.label}}</th>
+                                        <td>{{ field }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+                            
+                            </form>
+                          </div>
+                        </center>
+        </div>
+        </div>
+        </div>
+</body>
+</html>
