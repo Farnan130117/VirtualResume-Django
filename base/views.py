@@ -10,7 +10,8 @@ def home(request):
 def projects(request):
 	projects = project.objects.all()
 	return render(request, 'base/projects.html', {'projects':projects})
-
+	
+# we can upload new project in upload section
 def upload(request):
     upload = projectCreate()
     if request.method == 'POST':
