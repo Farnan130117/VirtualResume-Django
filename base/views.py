@@ -7,6 +7,9 @@ from .form import projectCreate
 def home(request):
 	return render(request, 'base/home.html')
 
+def vlog(request):
+    return render(request, 'base/vlog.html')
+
 def projects(request):
 	projects = project.objects.all()
 	return render(request, 'base/projects.html', {'projects':projects})
