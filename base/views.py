@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import *
-from .form import projectCreate
+from .form import projectCreate # importing projectCreate form in this file
 
 
 # Create your views here.
@@ -13,16 +14,41 @@ def vlog(request):
 def projects(request):
 	projects = project.objects.all()
 	return render(request, 'base/projects.html', {'projects':projects})
+
 	
 # we can upload new project in upload section
 def upload(request):
-    upload = projectCreate()
+    upload = projectCreate() # adding input form 
     if request.method == 'POST':
         upload = projectCreate(request.POST, request.FILES)
         if upload.is_valid():
             upload.save()
             return redirect('/')
         else:
-            return HttpResponse("""your form is wrong, reload on <a href = "{{ url : 'index'}}">reload</a>""")
+            return HttpResponse("""Your form is wrong, reload on <a href="/upload/"> Upload Project</a>""")
     else:
         return render(request, 'base/upload_project_form.html', {'upload_form':upload})
+
+
+#update_project
+def update_project(request, project_id):
+    project_id = int(project_id)
+    try:
+        project_find = project.objects.get(id = project_id)
+    except project.DoesNotExist:
+        return redirect('projects')
+    project_form = projectCreate(request.POST or None, instance = project_find)
+    if project_form.is_valid():
+       project_form.save()
+       return redirect('projects')
+    return render(request, 'base/upload_project_form.html', {'upload_form':project_form})
+
+#Delete_project
+def delete_project(request,project_id):
+    project_id = int(project_id)
+    try:
+        project_find = project.objects.get(id = project_id)
+    except project.DoesNotExist:
+        return redirect('projects')
+    project_find.delete()
+    return redirect('projects')

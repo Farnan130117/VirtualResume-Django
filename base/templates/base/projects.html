@@ -17,6 +17,9 @@
 			    <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Yin_yang.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 			    Main Resume
 			  </a>
+			  <a class="navbar-brand" href="/vlog/">
+			    vlog
+			  </a>
 			  <a class="navbar-brand" href="/upload/">
 			    Upload Project
 			  </a>
@@ -37,8 +40,17 @@
 				</tr>
 				{% for i in projects %}
 					<tr class="table-info">
-						<td>{{i.name}}</td>
-						<td>
+					<td>{{i.name}} 
+                         <center>
+                       <div class="btn-group">
+                       <a href="update/{{i.id}}" class="btn btn-warning" id = '{{i.id}}'>edit</a> 
+                       <a href="delete/{{i.id}}" class="btn btn-danger" id = '{{i.id}}'>delete</a>
+                       </div>
+
+                      <!-- <a href="delete/{{i.id}}" class="btn btn-danger" id = '{{book.id}}'>delete</a> -->
+                        </center>
+					</td>
+					<td>
 						<button type="button" class="btn btn-link">
 				            <a href="{{i.gitrepo}}" role="link" aria-disabled="true"> {{i.gitrepo}} </a>
 				        </button>  
