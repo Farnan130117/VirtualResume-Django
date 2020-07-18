@@ -3,6 +3,16 @@ from django.http import HttpResponse
 from .models import *
 from .form import projectCreate # importing projectCreate form in this file
 
+#Register Section
+
+def registerPage(request):
+    context={}
+    return render(request,'base/register.html',context)
+#Login Section
+
+def loginPage(request):
+    context={}
+    return render(request,'base/login.html',context)
 
 # Create your views here.
 def home(request):
